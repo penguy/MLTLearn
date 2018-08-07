@@ -1,9 +1,9 @@
 #!/bin/sh
 #****************************************************************#
 # ScriptName: install_base_lib.sh
-# Author: yisheng.xp@alibaba-inc.com
+# Author: penguy@qq.com
 # Create Date: 2017-12-10 16:26
-# Modify Author: $SHTERM_REAL_USER@alibaba-inc.com
+# Modify Author: $SHTERM_REAL_USER
 # Modify Date: 2018-01-17 20:53
 # Function:
 #***************************************************************#
