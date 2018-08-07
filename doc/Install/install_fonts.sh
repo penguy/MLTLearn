@@ -1,9 +1,9 @@
 #!/bin/sh
 #****************************************************************#
 # ScriptName: install_fonts.sh
-# Author: yisheng.xp@alibaba-inc.com
+# Author: penguy@qq.com
 # Create Date: 2017-12-10 16:26
-# Modify Author: yisheng.xp@alibaba-inc.com
+# Modify Author: penguy@qq.com
 # Modify Date: 2018-01-17 20:21
 # Function:
 #***************************************************************#
