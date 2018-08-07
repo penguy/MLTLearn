@@ -1,6 +1,6 @@
 #!/bin/bash
 #****************************************************************#
-# Author: yisheng.xp@alibaba-inc.com
+# Author: penguy@qq.com
 # 该脚本主要用于在 centos7 操作系统(Linux e011239166174.et15sqa 3.10.0)下
 # 自动安装 MLT 及其所需依赖，包括(yasm, ffmpeg, jack-audio, movit, qt, webvfx 等)
 # 条件: 需要系统具备 yum 软件包管理器
