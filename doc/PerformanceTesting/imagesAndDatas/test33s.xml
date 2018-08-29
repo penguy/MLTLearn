@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<mlt>
+    <profile width="720" height="720" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="1" display_aspect_den="1"/>
+    <producer id="mlt_track_0" in="0" out="103">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://multimedia.file.alimmdn.com/templatetest/tp1-clip1.mp4</property>
+        <filter id="copfilter_mlt_track_0">
+            <property name="mlt_service">crop</property>
+            <property name="center">1</property>
+        </filter>
+    </producer>
+    <producer id="mlt_track_1_playlist_1" in="0" out="129">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://multimedia.file.alimmdn.com/templatetest/tp1-clip2.mp4</property>
+        <filter id="copfilter_mlt_track_1_playlist_1">
+            <property name="mlt_service">crop</property>
+            <property name="center">1</property>
+        </filter>
+    </producer>
+    <playlist id="mlt_track_1">
+        <blank length="53"/>
+        <entry producer="mlt_track_1_playlist_1"/>
+    </playlist>
+    <producer id="mlt_track_2_playlist_1" in="0" out="469">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://multimedia.file.alimmdn.com/templatetest/tp1-clip3.mp4</property>
+        <filter id="copfilter_mlt_track_2_playlist_1">
+            <property name="mlt_service">crop</property>
+            <property name="center">1</property>
+        </filter>
+    </producer>
+    <playlist id="mlt_track_2">
+        <blank length="132"/>
+        <entry producer="mlt_track_2_playlist_1"/>
+    </playlist>
+    <producer id="mlt_track_3_playlist_1" in="0" out="334">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://multimedia.file.alimmdn.com/templatetest/tp1-clip4.mp4</property>
+        <filter id="copfilter_mlt_track_3_playlist_1">
+            <property name="mlt_service">crop</property>
+            <property name="center">1</property>
+        </filter>
+    </producer>
+    <playlist id="mlt_track_3">
+        <blank length="551"/>
+        <entry producer="mlt_track_3_playlist_1"/>
+    </playlist>
+    <tractor id="mlt">
+        <track producer="mlt_track_0"/>
+        <track producer="mlt_track_1"/>
+        <track producer="mlt_track_2"/>
+        <track producer="mlt_track_3"/>
+        <filter in="0" out="90">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/animation-filter/animation-filter.html</property>
+            <property name="track">0</property>
+            <property name="name">animation2</property>
+        </filter>
+        <transition in="53" out="103">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/gl-transition/gl-transition.html</property>
+            <property name="name">fade</property>
+            <property name="a_track">0</property>
+            <property name="b_track">1</property>
+        </transition>
+        <transition in="53" out="103">
+            <property name="mlt_service">mix</property>
+            <property name="a_track">0</property>
+            <property name="b_track">1</property>
+            <property name="start">0</property>
+            <property name="end">1</property>
+            <property name="combine">1</property>
+        </transition>
+        <transition in="132" out="182">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/gl-transition/gl-transition.html</property>
+            <property name="name">fadecolor</property>
+            <property name="a_track">1</property>
+            <property name="b_track">2</property>
+        </transition>
+        <transition in="132" out="182">
+            <property name="mlt_service">mix</property>
+            <property name="a_track">1</property>
+            <property name="b_track">2</property>
+            <property name="start">0</property>
+            <property name="end">1</property>
+            <property name="combine">1</property>
+        </transition>
+        <transition in="551" out="601">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/gl-transition/gl-transition.html</property>
+            <property name="name">Swirl</property>
+            <property name="a_track">2</property>
+            <property name="b_track">3</property>
+        </transition>
+        <transition in="551" out="601">
+            <property name="mlt_service">mix</property>
+            <property name="a_track">2</property>
+            <property name="b_track">3</property>
+            <property name="start">0</property>
+            <property name="end">1</property>
+            <property name="combine">1</property>
+        </transition>
+    </tractor>
+</mlt>

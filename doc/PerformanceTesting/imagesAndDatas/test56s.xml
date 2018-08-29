@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<mlt>
+    <profile width="1280" height="720" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="1280" display_aspect_den="720" frame_rate_num="25" frame_rate_den="1"/>
+    <producer id="producer0" in="0" out="601">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://cloud.video.taobao.com//play/u/713044/p/2/e/6/t/1/d/hd/50080768158.mp4</property>
+        <filter id="copfilter_producer0">
+            <property name="mlt_service">crop</property>
+            <property name="center">1</property>
+        </filter>
+    </producer>
+    <producer id="producer1" in="0" out="725">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://cloud.video.taobao.com//play/u/713044/p/2/e/6/t/1/d/hd/50080764180.mp4</property>
+        <filter id="copfilter_producer1">
+            <property name="mlt_service">crop</property>
+            <property name="center">1</property>
+        </filter>
+    </producer>
+    <producer id="producer2" in="0" out="176">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://cloud.video.taobao.com//play/u/713044/p/2/e/6/t/1/d/hd/50080818089.mp4</property>
+        <filter id="copfilter_producer2">
+            <property name="mlt_service">crop</property>
+            <property name="center">1</property>
+        </filter>
+    </producer>
+    <playlist id="playlist0">
+        <entry producer="producer0"/>
+    </playlist>
+    <playlist id="playlist1">
+        <entry producer="producer1"/>
+    </playlist>
+    <playlist id="playlist2">
+        <entry producer="producer2"/>
+    </playlist>
+    <tractor id="playlist0_tractor">
+        <track producer="playlist0"/>
+        <filter in="41" out="146">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/animation-filter/animation-filter.html</property>
+            <property name="track">0</property>
+            <property name="name">animation1</property>
+            <property name="params">{"text":"原木木浆卫生纸","textColor":"#FFFFFF","frameColor":"#3ba155"}</property>
+        </filter>
+    </tractor>
+    <tractor id="playlist1_tractor">
+        <track producer="playlist1"/>
+        <filter in="112" out="194">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/animation-filter/animation-filter.html</property>
+            <property name="track">0</property>
+            <property name="name">animation3</property>
+            <property name="params">{"text":"固定位置拉扯，轻松取出卫生纸","textColor":"#3ba155","serialNumber":"","serialNumberColor":"#FFFFFF","circleColor":"#3ba155"}</property>
+        </filter>
+        <filter in="231" out="317">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/animation-filter/animation-filter.html</property>
+            <property name="track">0</property>
+            <property name="name">animation3</property>
+            <property name="params">{"text":"纸质轻薄细腻","textColor":"#3ba155","serialNumber":"","serialNumberColor":"#FFFFFF","circleColor":"#3ba155"}</property>
+        </filter>
+        <filter in="334" out="420">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/animation-filter/animation-filter.html</property>
+            <property name="track">0</property>
+            <property name="name">animation3</property>
+            <property name="params">{"text":"快速吸水","textColor":"#3ba155","serialNumber":"","serialNumberColor":"#FFFFFF","circleColor":"#3ba155"}</property>
+        </filter>
+        <filter in="628" out="693">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/animation-filter/animation-filter.html</property>
+            <property name="track">0</property>
+            <property name="name">animation3</property>
+            <property name="params">{"text":"沾水不易破","textColor":"#3ba155","serialNumber":"","serialNumberColor":"#FFFFFF","circleColor":"#6ebcc1"}</property>
+        </filter>
+    </tractor>
+    <tractor id="playlist2_tractor">
+        <track producer="playlist2"/>
+        <filter in="35" out="124">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/animation-filter/animation-filter.html</property>
+            <property name="track">0</property>
+            <property name="name">animation1</property>
+            <property name="params">{"text":"原木木浆，柔韧升级，舒适健康","textColor":"#3ba155","frameColor":"#3ba155"}</property>
+        </filter>
+    </tractor>
+    <playlist id="playlist_tractor0">
+        <entry producer="playlist0_tractor"/>
+        <blank length="625"/>
+        <entry producer="playlist2_tractor"/>
+    </playlist>
+    <playlist id="playlist_tractor1">
+        <blank length="551"/>
+        <entry producer="playlist1_tractor"/>
+    </playlist>
+    <tractor id="tractor0">
+        <track producer="playlist_tractor0"/>
+        <track producer="playlist_tractor1"/>
+        <transition in="551" out="601">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/gl-transition/gl-transition.html</property>
+            <property name="name">fade</property>
+            <property name="a_track">0</property>
+            <property name="b_track">1</property>
+        </transition>
+        <transition in="551" out="601">
+            <property name="mlt_service">mix</property>
+            <property name="a_track">0</property>
+            <property name="b_track">1</property>
+            <property name="start">0</property>
+            <property name="end">1</property>
+            <property name="combine">1</property>
+        </transition>
+        <transition in="1226" out="1276">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/gl-transition/gl-transition.html</property>
+            <property name="name">fade</property>
+            <property name="a_track">1</property>
+            <property name="b_track">0</property>
+        </transition>
+        <transition in="1226" out="1276">
+            <property name="mlt_service">mix</property>
+            <property name="a_track">1</property>
+            <property name="b_track">0</property>
+            <property name="start">0</property>
+            <property name="end">1</property>
+            <property name="combine">1</property>
+        </transition>
+    </tractor>
+</mlt>

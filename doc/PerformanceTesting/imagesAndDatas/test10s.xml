@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<mlt>
+    <profile width="720" height="720" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="720" display_aspect_den="720" frame_rate_num="25" frame_rate_den="1"/>
+    <producer id="producer0" in="0" out="99">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://cloud.video.taobao.com//play/u/undefined/p/2/e/6/t/1/d/hd/50080324463.mp4</property>
+        <filter id="copfilter_producer0">
+            <property name="mlt_service">crop</property>
+            <property name="center">1</property>
+        </filter>
+    </producer>
+    <producer id="producer1" in="0" out="99">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://cloud.video.taobao.com//play/u/undefined/p/2/e/6/t/1/d/hd/50080324464.mp4</property>
+        <filter id="copfilter_producer1">
+            <property name="mlt_service">crop</property>
+            <property name="center">1</property>
+        </filter>
+    </producer>
+    <producer id="producer2" in="0" out="99">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://cloud.video.taobao.com//play/u/undefined/p/2/e/6/t/1/d/hd/50080324471.mp4</property>
+        <filter id="copfilter_producer2">
+            <property name="mlt_service">crop</property>
+            <property name="center">1</property>
+        </filter>
+    </producer>
+    <producer id="producer3" in="0" out="247">
+        <property name="mlt_service">avformat</property>
+        <property name="resource">http://videotool.alicdn.com/material/audio/Summer.mp3</property>
+        <property name="audio_index">0</property>
+        <property name="video_index">-1</property>
+    </producer>
+    <playlist id="playlist0">
+        <entry producer="producer0"/>
+    </playlist>
+    <playlist id="playlist1">
+        <entry producer="producer1"/>
+    </playlist>
+    <playlist id="playlist2">
+        <entry producer="producer2"/>
+    </playlist>
+    <tractor id="playlist0_tractor">
+        <track producer="playlist0"/>
+        <filter in="0" out="82">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/animation-filter/animation-filter.html</property>
+            <property name="track">0</property>
+            <property name="name">animation2</property>
+            <property name="params">{"text":"产品卖点文字","textColor":"#FFFFFF","subText":"这条目录是辅助说明文案，文字长度20字符","subTextColor":"#FFFFFF","rectColor":"#FF0000","position":{"x":0.3359683794466403,"y":0.5074074074074074}}</property>
+        </filter>
+    </tractor>
+    <tractor id="playlist1_tractor">
+        <track producer="playlist1"/>
+    </tractor>
+    <tractor id="playlist2_tractor">
+        <track producer="playlist2"/>
+    </tractor>
+    <playlist id="playlist_tractor0">
+        <entry producer="playlist0_tractor"/>
+        <blank length="49"/>
+        <entry producer="playlist2_tractor"/>
+    </playlist>
+    <playlist id="playlist_tractor1">
+        <blank length="49"/>
+        <entry producer="playlist1_tractor"/>
+    </playlist>
+    <tractor id="tractor0">
+        <track producer="playlist_tractor0"/>
+        <track producer="playlist_tractor1"/>
+        <transition in="49" out="99">
+            <property name="mlt_service">webvfx</property>
+            <property name="resource">/home/admin/multimedia-process-platform/webvfx-html/gl-transition/gl-transition.html</property>
+            <property name="name">wind</property>
+            <property name="a_track">0</property>
+            <property name="b_track">1</property>
+        </transition>
+        <transition in="49" out="99">
+            <property name="mlt_service">mix</property>
+            <property name="a_track">0</property>
+            <property name="b_track">1</property>
+            <property name="start">0</property>
+            <property name="end">1</property>
+            <property name="combine">1</property>
+        </transition>
+    </tractor>
+    <tractor id="tractor1">
+        <track producer="tractor0"/>
+        <track producer="producer3"/>
+    </tractor>
+</mlt>
