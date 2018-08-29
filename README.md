@@ -20,6 +20,14 @@ MLT 目前是开源的多媒体处理框架，面向电视广播进行设计和�
 
 [2) OSX下搭建MLT环境](https://github.com/penguy/MLTLearn/blob/master/doc/Install/OSX下搭建MLT环境.md)
 
-# 开源许可证
+## 3.2 MLT Framework设计
+
+## 3.3 MLT 插件
+
+## 3.4 MLT 性能测试
+
+[性能测试报告](https://github.com/penguy/MLTLearn/blob/master/doc/PerformanceTesting/MLT在不同环境下性能测试总结.md)
+
+# 附: 开源许可证
 
 本库所有源码及修改均遵循 GPL 协议，引用本库源码和文档的个人和组织也需遵循。
