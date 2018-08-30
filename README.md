@@ -22,6 +22,8 @@ MLT 目前是开源的多媒体处理框架，面向电视广播进行设计和�
 
 ## 3.2 MLT Framework设计
 
+[1)框架设计](doc/FrameworkArch/MLT框架设计.md)
+
 ## 3.3 MLT 插件
 
 ## 3.4 MLT 性能测试
